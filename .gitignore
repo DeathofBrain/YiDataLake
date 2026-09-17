@@ -1,0 +1,51 @@
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.local
+*.pem
+*.key
+
+# Jupyter and Python
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Spark, Iceberg and local data
+spark-warehouse/
+metastore_db/
+derby.log
+spark-events/
+warehouse/
+data/
+
+# Build and runtime output
+build/
+dist/
+target/
+*.log
+*.pid
+*.tmp
+*.temp
+
+# Editors and operating systems
+.idea/
+.vscode/
+*.code-workspace
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local test and coverage output
+.coverage
+htmlcov/
+coverage/
+test-results/
