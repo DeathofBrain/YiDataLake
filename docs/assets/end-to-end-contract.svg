@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="780" viewBox="0 0 1400 780" role="img" aria-labelledby="title desc">
+  <title id="title">端到端输入输出契约</title>
+  <desc id="desc">展示端到端元数据控制层接收的数据源、意图、策略和历史状态，并输出控制面工件、任务计划、结构化结果、证据和质量报告。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/></marker>
+    <style>
+      .title{font:700 28px 'Microsoft YaHei',sans-serif;fill:#0f172a}.sub{font:400 14px 'Microsoft YaHei',sans-serif;fill:#475569}
+      .h{font:700 17px 'Microsoft YaHei',sans-serif;fill:#0f172a}.b{font:400 13px 'Microsoft YaHei',sans-serif;fill:#334155}.w{font:700 14px 'Microsoft YaHei',sans-serif;fill:#fff}.s{font:400 12px 'Microsoft YaHei',sans-serif;fill:#64748b}
+    </style>
+  </defs>
+  <rect width="1400" height="780" fill="#f8fafc"/>
+  <text x="48" y="48" class="title">端到端输入 / 输出契约</text>
+  <text x="48" y="76" class="sub">建议接口：IntentSpec + Sources + Policy/Budget + ReuseState → Plan + Views + Evidence + Quality</text>
+
+  <rect x="48" y="116" width="320" height="540" rx="12" fill="#ecfeff" stroke="#14b8a6"/>
+  <text x="208" y="150" text-anchor="middle" class="h">输入 Input</text>
+  <rect x="78" y="180" width="260" height="90" rx="8" fill="#0f766e"/><text x="208" y="211" text-anchor="middle" class="w">Sources</text><text x="208" y="236" text-anchor="middle" class="w">URI / format / snapshot / permissions</text><text x="208" y="257" text-anchor="middle" class="w">CSV · JSON · PDF · HTML · table · graph</text>
+  <rect x="78" y="290" width="260" height="90" rx="8" fill="#0f766e"/><text x="208" y="321" text-anchor="middle" class="w">IntentSpec</text><text x="208" y="346" text-anchor="middle" class="w">goal · entities · fields · time scope</text><text x="208" y="367" text-anchor="middle" class="w">expected output · success criteria</text>
+  <rect x="78" y="400" width="260" height="90" rx="8" fill="#0f766e"/><text x="208" y="431" text-anchor="middle" class="w">Policy &amp; Budget</text><text x="208" y="456" text-anchor="middle" class="w">purpose · PII · latency · USD · human review</text><text x="208" y="477" text-anchor="middle" class="w">freshness / model availability</text>
+  <rect x="78" y="510" width="260" height="90" rx="8" fill="#0f766e"/><text x="208" y="541" text-anchor="middle" class="w">ReuseState</text><text x="208" y="566" text-anchor="middle" class="w">catalog · extractor · mapping · views</text><text x="208" y="587" text-anchor="middle" class="w">quality baseline / prior runs</text>
+
+  <line x1="368" y1="386" x2="448" y2="386" stroke="#334155" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="448" y="218" width="300" height="336" rx="12" fill="#fff" stroke="#94a3b8"/>
+  <text x="598" y="254" text-anchor="middle" class="h">Control &amp; Execution</text>
+  <rect x="480" y="286" width="236" height="56" rx="8" fill="#dbeafe" stroke="#60a5fa"/><text x="598" y="320" text-anchor="middle" class="h">Profile &amp; Discover</text>
+  <line x1="598" y1="342" x2="598" y2="365" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="480" y="375" width="236" height="56" rx="8" fill="#dcfce7" stroke="#22c55e"/><text x="598" y="409" text-anchor="middle" class="h">Typed Plan + Verifier</text>
+  <line x1="598" y1="431" x2="598" y2="454" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="480" y="464" width="236" height="56" rx="8" fill="#fef3c7" stroke="#f59e0b"/><text x="598" y="498" text-anchor="middle" class="h">Route / Extract / Align</text>
+
+  <line x1="748" y1="386" x2="828" y2="386" stroke="#334155" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="828" y="116" width="524" height="540" rx="12" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="1090" y="150" text-anchor="middle" class="h">输出 Output</text>
+  <rect x="860" y="180" width="220" height="94" rx="8" fill="#1e3a8a"/><text x="970" y="212" text-anchor="middle" class="w">Control Artifacts</text><text x="970" y="237" text-anchor="middle" class="w">Manifest · Profile · FieldProfile</text><text x="970" y="258" text-anchor="middle" class="w">ExtractorSpec · Mapping</text>
+  <rect x="1100" y="180" width="220" height="94" rx="8" fill="#334155"/><text x="1210" y="212" text-anchor="middle" class="w">Task Plan</text><text x="1210" y="237" text-anchor="middle" class="w">typed DAG · implementations</text><text x="1210" y="258" text-anchor="middle" class="w">versions · fallback · checkpoints</text>
+  <rect x="860" y="306" width="220" height="94" rx="8" fill="#0f766e"/><text x="970" y="338" text-anchor="middle" class="w">Structured Views</text><text x="970" y="363" text-anchor="middle" class="w">entities · relations · events</text><text x="970" y="384" text-anchor="middle" class="w">GraphView / TableView</text>
+  <rect x="1100" y="306" width="220" height="94" rx="8" fill="#7c3aed"/><text x="1210" y="338" text-anchor="middle" class="w">EvidenceBundle</text><text x="1210" y="363" text-anchor="middle" class="w">URI · page/row/JSONPath</text><text x="1210" y="384" text-anchor="middle" class="w">snippet · extractor · lineage</text>
+  <rect x="860" y="432" width="460" height="94" rx="8" fill="#be123c"/><text x="1090" y="464" text-anchor="middle" class="w">Quality &amp; Failure Report</text><text x="1090" y="489" text-anchor="middle" class="w">coverage/F1 · conflicts · drift · denied · timeout · cost · unresolved</text><text x="1090" y="510" text-anchor="middle" class="w">next action: reuse / re-profile / escalate / local replay</text>
+  <path d="M 1090 526 C 1090 600, 598 600, 598 554" fill="none" stroke="#be123c" stroke-width="2" stroke-dasharray="8 8" marker-end="url(#arrow)"/>
+  <text x="598" y="630" text-anchor="middle" class="h" fill="#9f1239">输出质量与 lineage 反向决定下一次计划和局部重跑</text>
+  <text x="48" y="716" class="s">图中输出不是单一宽表：结果、证据、质量和控制面状态必须同时交付，才能支持审计与恢复。</text>
+</svg>

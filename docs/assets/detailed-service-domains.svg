@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1120" viewBox="0 0 1700 1120" role="img" aria-labelledby="title desc">
+  <title id="title">数据湖套件、AI能力服务与元数据控制层的详细分层和数据交换</title>
+  <desc id="desc">Intent Agent 调用元数据控制层，控制层分别调用数据湖及套件和外部 OCR/LLM 能力，并统一返回结果、证据、质量与 lineage。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/></marker>
+    <style>.title{font:700 28px 'Microsoft YaHei',sans-serif;fill:#0f172a}.sub{font:400 14px 'Microsoft YaHei',sans-serif;fill:#475569}.h{font:700 18px 'Microsoft YaHei',sans-serif;fill:#0f172a}.b{font:400 13px 'Microsoft YaHei',sans-serif;fill:#334155}.w{font:700 14px 'Microsoft YaHei',sans-serif;fill:#fff}.s{font:400 12px 'Microsoft YaHei',sans-serif;fill:#64748b}.label{font:700 12px 'Microsoft YaHei',sans-serif;fill:#0f172a}</style>
+  </defs>
+  <rect width="1700" height="1120" fill="#f8fafc"/>
+  <text x="48" y="48" class="title">细化架构：数据湖套件与外部 AI 能力服务分开</text>
+  <text x="48" y="76" class="sub">逻辑上五层，产品上只开发 L3 元数据控制层；L1/L2 通过标准 API 复用，L4 是最外层应用</text>
+
+  <rect x="48" y="112" width="1604" height="118" rx="12" fill="#f5f3ff" stroke="#7c3aed" stroke-width="3"/>
+  <text x="850" y="148" text-anchor="middle" class="h">L4 Intent Agent（应用层 / 最外层）</text>
+  <text x="850" y="178" text-anchor="middle" class="b">向 L3 提供 IntentSpec：目标、范围、目标 schema、预算、权限、质量与证据要求</text>
+  <text x="850" y="204" text-anchor="middle" class="b">从 L3 获取 AssetView、PlanView、ResultView、EvidenceBundle 和 FailureAdvice</text>
+  <line x1="850" y1="230" x2="850" y2="266" stroke="#7c3aed" stroke-width="3" marker-end="url(#arrow)"/><text x="878" y="254" class="label">Intent API / Tool API</text>
+
+  <rect x="48" y="266" width="1604" height="236" rx="12" fill="#fff" stroke="#be123c" stroke-width="4"/>
+  <text x="850" y="302" text-anchor="middle" class="h">L3 元数据控制层（本项目唯一新增层）</text>
+  <rect x="82" y="334" width="270" height="120" rx="8" fill="#ffe4e6"/><text x="217" y="368" text-anchor="middle" class="h">语义目录</text><text x="217" y="394" text-anchor="middle" class="b">Asset / Dataset / Field / Entity</text><text x="217" y="418" text-anchor="middle" class="b">snapshot、权限、语义 profile</text>
+  <rect x="382" y="334" width="270" height="120" rx="8" fill="#ffe4e6"/><text x="517" y="368" text-anchor="middle" class="h">契约与计划</text><text x="517" y="394" text-anchor="middle" class="b">InputSpec / OutputSpec</text><text x="517" y="418" text-anchor="middle" class="b">TypedPlan、路由、预算</text>
+  <rect x="682" y="334" width="270" height="120" rx="8" fill="#ffe4e6"/><text x="817" y="368" text-anchor="middle" class="h">适配与调用</text><text x="817" y="394" text-anchor="middle" class="b">Iceberg / Spark / OCR / LLM</text><text x="817" y="418" text-anchor="middle" class="b">API、SDK、Job submit</text>
+  <rect x="982" y="334" width="270" height="120" rx="8" fill="#ffe4e6"/><text x="1117" y="368" text-anchor="middle" class="h">质量与证据</text><text x="1117" y="394" text-anchor="middle" class="b">confidence / evidence / lineage</text><text x="1117" y="418" text-anchor="middle" class="b">quality、cost、drift、replay</text>
+  <rect x="1282" y="334" width="322" height="120" rx="8" fill="#be123c"/><text x="1443" y="368" text-anchor="middle" class="w">统一 Agent 契约</text><text x="1443" y="394" text-anchor="middle" class="w">AssetView / RunRef / ResultRef</text><text x="1443" y="418" text-anchor="middle" class="w">EvidenceBundle / FailureAdvice</text>
+
+  <line x1="520" y1="502" x2="520" y2="540" stroke="#be123c" stroke-width="3" marker-end="url(#arrow)"/><line x1="1180" y1="502" x2="1180" y2="540" stroke="#be123c" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="544" y="526" class="label">Catalog / Query / Job API</text><text x="1204" y="526" class="label">Inference API / Model API</text>
+
+  <rect x="48" y="540" width="760" height="316" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <text x="428" y="576" text-anchor="middle" class="h">L1 数据湖及套件（复用域 A）</text>
+  <text x="428" y="602" text-anchor="middle" class="s">负责文件、表、快照、查询和批/流计算；不负责业务语义</text>
+  <rect x="82" y="636" width="200" height="72" rx="8" fill="#1e3a8a"/><text x="182" y="666" text-anchor="middle" class="w">MinIO / S3</text><text x="182" y="690" text-anchor="middle" class="w">原始文件 / 派生文件</text>
+  <rect x="302" y="636" width="200" height="72" rx="8" fill="#1e3a8a"/><text x="402" y="666" text-anchor="middle" class="w">Iceberg / Catalog</text><text x="402" y="690" text-anchor="middle" class="w">schema / snapshot / manifest</text>
+  <rect x="522" y="636" width="250" height="72" rx="8" fill="#d97706"/><text x="647" y="666" text-anchor="middle" class="w">Spark / Trino / Flink</text><text x="647" y="690" text-anchor="middle" class="w">SQL / job / result table</text>
+  <text x="82" y="754" class="b">L3 → L1 请求：</text><text x="82" y="778" class="b">AssetQuery、SnapshotRef、DataReadSpec、ComputeJobSpec、WriteSpec</text><text x="82" y="810" class="b">L1 → L3 返回：</text><text x="82" y="834" class="b">AssetDescriptor、Schema、FileStats、ResultRef、RunStatus、Metrics</text>
+
+  <rect x="844" y="540" width="808" height="316" rx="12" fill="#ecfeff" stroke="#0f766e" stroke-width="3"/>
+  <text x="1248" y="576" text-anchor="middle" class="h">L2 外部语义能力服务（复用域 B）</text>
+  <text x="1248" y="602" text-anchor="middle" class="s">负责重型推理/解析；不保存控制面决策，结果由 L3 验收和登记</text>
+  <rect x="878" y="636" width="190" height="72" rx="8" fill="#0f766e"/><text x="973" y="666" text-anchor="middle" class="w">OCR Service</text><text x="973" y="690" text-anchor="middle" class="w">text / bbox / page</text>
+  <rect x="1080" y="636" width="190" height="72" rx="8" fill="#0f766e"/><text x="1175" y="666" text-anchor="middle" class="w">LLM Service</text><text x="1175" y="690" text-anchor="middle" class="w">JSON / labels / rationale</text>
+  <rect x="1282" y="636" width="160" height="72" rx="8" fill="#0f766e"/><text x="1362" y="666" text-anchor="middle" class="w">Embedding</text><text x="1362" y="690" text-anchor="middle" class="w">vectors / score</text>
+  <rect x="1454" y="636" width="160" height="72" rx="8" fill="#0f766e"/><text x="1534" y="666" text-anchor="middle" class="w">Matcher</text><text x="1534" y="690" text-anchor="middle" class="w">entity pairs</text>
+  <text x="878" y="754" class="b">L3 → L2 请求：</text><text x="878" y="778" class="b">InferenceRequest：input_ref、task、model/version、prompt hash、output schema、policy、budget</text><text x="878" y="810" class="b">L2 → L3 返回：</text><text x="878" y="834" class="b">InferenceResponse：structured output、confidence、evidence ref、cost、latency、error</text>
+
+  <rect x="48" y="892" width="1604" height="88" rx="10" fill="#0f172a"/><text x="850" y="926" text-anchor="middle" class="w">关键边界：L3 统一两类复用域的结果，但不把数据湖引擎或 OCR/LLM 运行时塞进控制层</text><text x="850" y="952" text-anchor="middle" class="s" fill="#cbd5e1">L1 处理数据与计算，L2 处理语义推理，L3 处理选择、契约、权限、验收和追溯，L4 处理用户意图与解释</text>
+</svg>

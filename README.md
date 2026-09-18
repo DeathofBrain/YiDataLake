@@ -27,6 +27,8 @@ Iceberg 每张表会自行维护：
 
 Catalog 不是数据血缘、业务术语、数据质量、审批权限等“数据治理平台”。如果团队后续需要这些能力，可以再接入 OpenMetadata、DataHub 或 Apache Atlas。
 
+面向 YiGraph 意图 Agent 的更完整方案见 [异构数据源元数据控制层调研](docs/异构数据源元数据控制层调研.md)：建议把 Iceberg 保留为表事实/快照底座，在其上增加语义抽取、实体对齐、质量、权限、lineage 和 Agent typed contract 控制面。
+
 ```text
 用户 / YiGraph / 作业
         |

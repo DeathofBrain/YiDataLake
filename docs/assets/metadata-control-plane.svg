@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Metadata Control Plane 分层架构</title>
+  <desc id="desc">展示源适配器、元数据控制层、typed task DAG、派生视图与治理闭环。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/></marker>
+    <style>
+      .title{font:700 28px 'Microsoft YaHei',sans-serif;fill:#0f172a}.sub{font:400 14px 'Microsoft YaHei',sans-serif;fill:#475569}
+      .h{font:700 17px 'Microsoft YaHei',sans-serif;fill:#0f172a}.b{font:400 13px 'Microsoft YaHei',sans-serif;fill:#334155}.w{font:700 13px 'Microsoft YaHei',sans-serif;fill:#fff}.s{font:400 12px 'Microsoft YaHei',sans-serif;fill:#64748b}
+    </style>
+  </defs>
+  <rect width="1400" height="900" fill="#f8fafc"/>
+  <text x="48" y="48" class="title">Metadata Control Plane：建议的系统边界</text>
+  <text x="48" y="76" class="sub">综合改绘：把 Evaporate 的抽取、Starmie/ALITE 的发现与集成、CADENZA 的 typed DAG 接到同一控制面</text>
+
+  <rect x="48" y="112" width="230" height="610" rx="12" fill="#ecfeff" stroke="#14b8a6"/>
+  <text x="163" y="146" text-anchor="middle" class="h">Source Adapters</text>
+  <rect x="76" y="178" width="174" height="56" rx="8" fill="#0f766e"/><text x="163" y="212" text-anchor="middle" class="w">CSV / Parquet</text>
+  <rect x="76" y="250" width="174" height="56" rx="8" fill="#0f766e"/><text x="163" y="284" text-anchor="middle" class="w">JSON / XML / API</text>
+  <rect x="76" y="322" width="174" height="56" rx="8" fill="#0f766e"/><text x="163" y="356" text-anchor="middle" class="w">PDF / HTML / TXT</text>
+  <rect x="76" y="394" width="174" height="56" rx="8" fill="#0f766e"/><text x="163" y="428" text-anchor="middle" class="w">图片 / 音视频</text>
+  <rect x="76" y="466" width="174" height="56" rx="8" fill="#0f766e"/><text x="163" y="500" text-anchor="middle" class="w">已有表 / 图</text>
+  <text x="76" y="572" class="b">统一输出：</text><text x="76" y="596" class="b">SourceSnapshot</text><text x="76" y="618" class="b">原始版本、权限、格式、</text><text x="76" y="640" class="b">分区与刷新时间</text>
+
+  <line x1="278" y1="416" x2="326" y2="416" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="326" y="112" width="520" height="610" rx="12" fill="#fff" stroke="#94a3b8"/>
+  <text x="586" y="146" text-anchor="middle" class="h">Metadata Control Plane</text>
+  <rect x="356" y="178" width="460" height="74" rx="8" fill="#dbeafe" stroke="#60a5fa"/><text x="376" y="208" class="h">1. Inventory &amp; Profile</text><text x="376" y="232" class="b">SourceManifest · DatasetProfile · schema / stats / drift fingerprint</text>
+  <rect x="356" y="270" width="460" height="74" rx="8" fill="#dcfce7" stroke="#22c55e"/><text x="376" y="300" class="h">2. Field &amp; Entity Semantics</text><text x="376" y="324" class="b">FieldProfile · ExtractorSpec · EntityMapping · conflict / uncertainty</text>
+  <rect x="356" y="362" width="460" height="74" rx="8" fill="#fef3c7" stroke="#f59e0b"/><text x="376" y="392" class="h">3. Quality &amp; Policy Gate</text><text x="376" y="416" class="b">权限、脱敏、质量预算、evidence threshold、人工升级</text>
+  <rect x="356" y="454" width="460" height="74" rx="8" fill="#f5f3ff" stroke="#8b5cf6"/><text x="376" y="484" class="h">4. Plan Compiler</text><text x="376" y="508" class="b">typed operator catalog · verifier · per-source/per-record routing</text>
+  <rect x="356" y="546" width="460" height="74" rx="8" fill="#ffe4e6" stroke="#fb7185"/><text x="376" y="576" class="h">5. Lineage &amp; Drift Loop</text><text x="376" y="600" class="b">LineageEdge · profile diff · invalidation · checkpoint · local replay</text>
+
+  <line x1="846" y1="416" x2="894" y2="416" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="894" y="112" width="458" height="610" rx="12" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="1123" y="146" text-anchor="middle" class="h">Typed Task DAG &amp; Derived Views</text>
+  <rect x="930" y="184" width="386" height="54" rx="8" fill="#0f172a"/><text x="1123" y="217" text-anchor="middle" class="w">Discover → Profile → Extract → Resolve</text>
+  <line x1="1123" y1="238" x2="1123" y2="268" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="930" y="278" width="386" height="54" rx="8" fill="#334155"/><text x="1123" y="311" text-anchor="middle" class="w">Integrate → Validate → BuildGraph</text>
+  <line x1="1123" y1="332" x2="1123" y2="362" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="930" y="372" width="386" height="54" rx="8" fill="#475569"/><text x="1123" y="405" text-anchor="middle" class="w">GraphView / TableView / EvidenceBundle</text>
+  <line x1="1123" y1="426" x2="1123" y2="456" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="930" y="466" width="186" height="80" rx="8" fill="#0f766e"/><text x="1023" y="497" text-anchor="middle" class="w">结构化结果</text><text x="1023" y="520" text-anchor="middle" class="w">实体 / 关系 / 事件</text>
+  <rect x="1130" y="466" width="186" height="80" rx="8" fill="#7c3aed"/><text x="1223" y="497" text-anchor="middle" class="w">可审计证据</text><text x="1223" y="520" text-anchor="middle" class="w">片段 / 页码 / lineage</text>
+  <text x="930" y="590" class="b">复用键：</text><text x="930" y="614" class="b">source_version + extractor_version</text><text x="930" y="636" class="b">+ mapping_version + policy_version + intent</text>
+
+  <path d="M 1123 722 C 1123 790, 586 790, 586 722" fill="none" stroke="#e11d48" stroke-width="2" stroke-dasharray="8 8" marker-end="url(#arrow)"/>
+  <text x="586" y="815" text-anchor="middle" class="h" fill="#9f1239">失败 / 漂移 → 沿 lineage 找最小影响集 → 局部重跑</text>
+  <text x="48" y="860" class="s">图中 Control Plane 是本项目建议；各论文只覆盖其中若干模块，不能将整张图归因于单篇论文。</text>
+</svg>
